@@ -1,2 +1,8 @@
 /politicasydevoluciones
   X-Robots-Tag: index, follow
+/politicasydevoluciones/
+  X-Robots-Tag: index, follow
+/empleados
+  X-Robots-Tag: noindex, nofollow
+/empleados/
+  X-Robots-Tag: noindex, nofollow

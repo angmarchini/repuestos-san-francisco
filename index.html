@@ -910,7 +910,7 @@ body.policy-active nav .nav-links a[href^="#"]{display:none!important;}
           <li><a href="#servicios" class="es-only">Servicios</a><a href="#servicios" class="en-only">Services</a></li>
           <li><a href="#cotizar" class="es-only">Cotizar</a><a href="#cotizar" class="en-only">Get quote</a></li>
           <li><a href="#faq">FAQ</a></li>
-          <li><a href="/politicasydevoluciones" class="es-only">Política de cambios y garantías</a><a href="/politicasydevoluciones" class="en-only">Returns and warranty policy</a></li>
+          <li><a href="https://repuestossanfranciscocr.com/politicasydevoluciones/" class="es-only">Política de cambios y garantías</a><a href="https://repuestossanfranciscocr.com/politicasydevoluciones/" class="en-only">Returns and warranty policy</a></li>
         </ul>
       </div>
       <div>
@@ -922,7 +922,7 @@ body.policy-active nav .nav-links a[href^="#"]{display:none!important;}
           <li><a href="https://www.facebook.com/share/1HM7LsjRBJ/?mibextid=wwXIfr" target="_blank">Facebook</a></li>
           <li><a href="https://www.instagram.com/repuestos_san_francisco?igsh=bW5hMTV3cWRrem9j" target="_blank">Instagram</a></li>
           <li><a href="https://waze.com/ul/hd1u0rk00t" target="_blank" rel="noopener" class="highlight">📍 Cómo llegar por Waze</a></li>
-          <li><a href="/politicasydevoluciones" class="highlight">📄 Política de cambios y garantías</a></li>
+          <li><a href="https://repuestossanfranciscocr.com/politicasydevoluciones/" class="highlight">📄 Política de cambios y garantías</a></li>
           <li><a href="#" class="es-only" style="font-size:11px;color:rgba(255,255,255,0.68);">San Francisco de Dos Ríos, SJ</a></li>
           <li><span class="es-only" style="font-size:11px;color:rgba(255,255,255,0.72);line-height:1.6;display:block;">Horario:<br>Lunes a viernes: 8:00 a.m. - 5:00 p.m.<br>Sábados: 8:00 a.m. - 3:00 p.m.<br>Domingos: 8:00 a.m. - 12:00 m.d.</span></li>
           <li><span class="en-only" style="font-size:11px;color:rgba(255,255,255,0.72);line-height:1.6;display:block;">Hours:<br>Monday-Friday: 8:00 a.m. - 5:00 p.m.<br>Saturday: 8:00 a.m. - 3:00 p.m.<br>Sunday: 8:00 a.m. - 12:00 p.m.</span></li>
@@ -1094,6 +1094,26 @@ function setLang(l){
 })();
 </script>
 
+
+
+<script>
+(function(){
+  const finalPolicyUrl = 'https://repuestossanfranciscocr.com/politicasydevoluciones/';
+
+  document.addEventListener('click', function(event){
+    const link = event.target.closest('a');
+    if(!link) return;
+
+    const href = link.getAttribute('href') || '';
+    const normalizedHref = href.replace('https://repuestossanfranciscocr.com','').replace(/\/+$/, '');
+
+    if(normalizedHref === '/politicasydevoluciones'){
+      event.preventDefault();
+      window.location.assign(finalPolicyUrl);
+    }
+  });
+})();
+</script>
 
 <script>
 (function(){
