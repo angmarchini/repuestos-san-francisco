@@ -299,6 +299,101 @@ footer{background:var(--navy);border-top:4px solid var(--red);padding:3.2rem 1.5
 @keyframes brandScroll{0%{transform:translateX(-50%);}100%{transform:translateX(0);}}
 @media(max-width:768px){.product-image-wrap{height:150px}.brands-track{animation-duration:58s}.brand-logo-card{width:138px;height:86px}.brands-carousel::before,.brands-carousel::after{width:48px}}
 
+
+/* ─── POLICY PAGE / POLITICAS Y DEVOLUCIONES ─── */
+.policy-page{
+  display:none;
+  background:var(--white);
+  padding:5.5rem 1.5rem;
+}
+body.policy-active .policy-page{display:block;}
+body.policy-active section:not(.policy-page){display:none!important;}
+body.policy-active .trust-bar{display:none!important;}
+body.policy-active nav .nav-links a[href^="#"]{display:none!important;}
+.policy-hero-card{
+  background:var(--navy);
+  color:var(--white);
+  border-radius:28px;
+  padding:3rem;
+  margin-bottom:2rem;
+  border-bottom:5px solid var(--red);
+  box-shadow:0 22px 60px rgba(14,1,85,0.18);
+}
+.policy-hero-card .eyebrow{color:var(--white);opacity:.86;}
+.policy-hero-card h1{
+  font-size:clamp(2rem,4vw,3.2rem);
+  line-height:1.05;
+  font-weight:900;
+  letter-spacing:-.8px;
+  margin-bottom:1rem;
+  color:var(--white);
+}
+.policy-hero-card p{
+  color:rgba(255,255,255,.84);
+  max-width:760px;
+  font-weight:500;
+  line-height:1.8;
+}
+.policy-wrapper{
+  max-width:980px;
+  margin:0 auto;
+}
+.policy-card{
+  background:var(--white);
+  border:2px solid rgba(14,1,85,0.12);
+  border-radius:22px;
+  padding:2rem;
+  margin-bottom:1.1rem;
+  box-shadow:0 16px 45px rgba(14,1,85,0.07);
+}
+.policy-card h2{
+  color:var(--navy);
+  font-size:1.15rem;
+  font-weight:900;
+  margin-bottom:1rem;
+  letter-spacing:-.2px;
+}
+.policy-card ul{
+  padding-left:1.1rem;
+  display:flex;
+  flex-direction:column;
+  gap:.7rem;
+}
+.policy-card li{
+  color:rgba(14,1,85,.76);
+  font-size:14px;
+  line-height:1.75;
+  font-weight:500;
+}
+.policy-note{
+  background:var(--navy);
+  color:var(--white);
+  border-left:6px solid var(--red);
+  border-radius:18px;
+  padding:1.4rem 1.5rem;
+  margin-top:1.5rem;
+  font-size:13px;
+  line-height:1.75;
+  font-weight:600;
+}
+.policy-actions{
+  display:flex;
+  gap:.8rem;
+  flex-wrap:wrap;
+  margin-top:1.5rem;
+}
+.policy-date{
+  margin-top:1rem;
+  font-size:12px;
+  color:rgba(14,1,85,.58);
+  font-weight:700;
+}
+@media(max-width:768px){
+  .policy-page{padding:4rem 1.25rem;}
+  .policy-hero-card{padding:2rem 1.4rem;border-radius:22px;}
+  .policy-card{padding:1.35rem;}
+}
+
 </style>
 </head>
 <!-- Logo blanco embedded as Base64 for GitHub / Cloudflare Pages deployment -->
@@ -708,6 +803,92 @@ footer{background:var(--navy);border-top:4px solid var(--red);padding:3.2rem 1.5
 </section>
 
 <!-- ══════════ FOOTER ══════════ -->
+
+<!-- ══════════ POLÍTICAS Y DEVOLUCIONES ══════════ -->
+<section id="politicasydevoluciones" class="policy-page" aria-labelledby="policy-title">
+  <div class="policy-wrapper">
+    <div class="policy-hero-card">
+      <div class="eyebrow">Políticas de tienda</div>
+      <h1 id="policy-title">Politica de cambios y garantias</h1>
+      <p>En Repuestos San Francisco valoramos la calidad de nuestros productos y la satisfacción de nuestros clientes. Por ello, ponemos a su disposición nuestras políticas de garantía y devoluciones, diseñadas para establecer lineamientos claros que protejan tanto al consumidor como a la empresa.</p>
+      <div class="policy-actions">
+        <a class="btn-wa" href="https://wa.me/50672021142?text=Hola%2C%20tengo%20una%20consulta%20sobre%20la%20pol%C3%ADtica%20de%20cambios%20y%20garant%C3%ADas.%0A%0ANombre%3A%0AN%C3%BAmero%20de%20factura%3A%0AProducto%3A%0ADetalle%20de%20la%20consulta%3A" target="_blank" rel="noopener">💬 Consultar por WhatsApp</a>
+        <a class="btn-red" href="/">Volver al inicio</a>
+      </div>
+    </div>
+
+    <article class="policy-card">
+      <h2>1. Plazo y Cobertura de Garantía</h2>
+      <ul>
+        <li>Todos los productos cuentan con una garantía de 30 días naturales a partir de la fecha de compra, salvo que el representante de la marca en Costa Rica indique lo contrario.</li>
+        <li>La garantía cubre únicamente defectos de fábrica y no incluye daños por instalación incorrecta, mal uso, negligencia o condiciones externas como calor, agua, golpes, entre otros.</li>
+      </ul>
+    </article>
+
+    <article class="policy-card">
+      <h2>2. Proceso y Aprobación de Garantías</h2>
+      <ul>
+        <li>Toda garantía debe ser evaluada y aprobada por el proveedor oficial de la marca en Costa Rica. Los distribuidores de marca solicitan al menos 24 horas hábiles para realizar la revisión del producto.</li>
+        <li>Repuestos San Francisco actúa como intermediario entre el cliente y el proveedor, y no garantiza la aprobación automática de la garantía.</li>
+        <li>El tiempo de resolución está sujeto a los plazos definidos por el proveedor.</li>
+      </ul>
+    </article>
+
+    <article class="policy-card">
+      <h2>3. Requisitos para Solicitar Garantía</h2>
+      <ul>
+        <li>El producto debe estar en condiciones nuevas o sin haber sido instalado, excepto piezas que presentan un fallo que se puede determinar que es defecto de fábrica posterior a su instalación dentro del plazo de 30 días naturales.</li>
+        <li>Debe contar con su empaque original, limpio, sellado y en perfecto estado.</li>
+        <li>No se aceptan productos con empaques abiertos, dañados, mojados, arrugados o sucios, excepto piezas que presentan un fallo que se puede determinar que es defecto de fábrica posterior a su instalación dentro del plazo de 30 días naturales.</li>
+        <li>El cliente deberá presentar la factura original, física e impresa.</li>
+        <li>Sin factura física, no se tramitarán garantías ni devoluciones.</li>
+        <li>Productos eléctricos y electrónicos deben haber sido instalados por personal calificado. La garantía queda sujeta a aprobación por parte del distribuidor de la marca en el país.</li>
+      </ul>
+    </article>
+
+    <article class="policy-card">
+      <h2>4. Exclusiones de Garantía</h2>
+      <ul>
+        <li>Instalación incorrecta o uso inadecuado del producto.</li>
+        <li>Daños por factores externos: caídas, agua, exposición extrema, entre otros.</li>
+        <li>Manipulación o modificación del producto.</li>
+        <li>Productos consumibles con desgaste natural.</li>
+      </ul>
+    </article>
+
+    <article class="policy-card">
+      <h2>5. Política de Cambios y Devoluciones</h2>
+      <ul>
+        <li>En caso de piezas que no se utilizan o que se suplen de acuerdo con la solicitud del cliente, pero no es la correcta, se efectúa únicamente cambio por otro repuesto o accesorio. El plazo máximo para solicitar cambios de producto por otro es de 15 días naturales desde la fecha de compra.</li>
+        <li>El producto debe encontrarse en perfectas condiciones, sin señales de uso, con su empaque original sellado, limpio y completo. Sin excepción.</li>
+        <li>Se deberá presentar la factura original física e impresa.</li>
+        <li>No se aceptan devoluciones de productos con empaques abiertos o manipulados.</li>
+        <li>No se reembolsará dinero en efectivo. Las devoluciones se realizarán mediante nota de crédito o cambio por otro producto.</li>
+        <li>Productos solicitados contra pedido, encargo nacional o importación, no tienen devolución bajo ninguna excepción.</li>
+      </ul>
+    </article>
+
+    <article class="policy-card">
+      <h2>6. Proceso de Evaluación</h2>
+      <ul>
+        <li>Una vez recibido el producto, será sometido a evaluación técnica interna y/o por parte del proveedor.</li>
+        <li>En caso de ser aprobada la garantía, se procederá con el reemplazo del producto o nota de crédito.</li>
+        <li>En caso de rechazo, el producto se devolverá al cliente en el mismo estado en que fue recibido.</li>
+      </ul>
+    </article>
+
+    <article class="policy-card">
+      <h2>7. Observaciones Finales</h2>
+      <ul>
+        <li>Estas políticas aplican exclusivamente para compras realizadas en Repuestos y Accesorios San Francisco, sede San José, San Francisco de Dos Ríos.</li>
+        <li>Al momento de efectuar una compra, el cliente acepta y reconoce haber leído y entendido estas condiciones.</li>
+        <li>Repuestos San Francisco se reserva el derecho de modificar esta política sin previo aviso.</li>
+      </ul>
+      <div class="policy-note">Fecha de revisión: 12 de mayo del 2025, de acuerdo con la Ley de Promoción de la Competencia y Defensa Efectiva del Consumidor (Ley N.º 7472) y su reglamento (Decreto Ejecutivo N.º 37899-MEIC).</div>
+    </article>
+  </div>
+</section>
+
 <footer>
   <div class="footer-inner">
     <div class="footer-grid">
@@ -729,6 +910,7 @@ footer{background:var(--navy);border-top:4px solid var(--red);padding:3.2rem 1.5
           <li><a href="#servicios" class="es-only">Servicios</a><a href="#servicios" class="en-only">Services</a></li>
           <li><a href="#cotizar" class="es-only">Cotizar</a><a href="#cotizar" class="en-only">Get quote</a></li>
           <li><a href="#faq">FAQ</a></li>
+          <li><a href="/politicasydevoluciones" class="es-only">Política de cambios y garantías</a><a href="/politicasydevoluciones" class="en-only">Returns and warranty policy</a></li>
         </ul>
       </div>
       <div>
@@ -740,6 +922,7 @@ footer{background:var(--navy);border-top:4px solid var(--red);padding:3.2rem 1.5
           <li><a href="https://www.facebook.com/share/1HM7LsjRBJ/?mibextid=wwXIfr" target="_blank">Facebook</a></li>
           <li><a href="https://www.instagram.com/repuestos_san_francisco?igsh=bW5hMTV3cWRrem9j" target="_blank">Instagram</a></li>
           <li><a href="https://waze.com/ul/hd1u0rk00t" target="_blank" rel="noopener" class="highlight">📍 Cómo llegar por Waze</a></li>
+          <li><a href="/politicasydevoluciones" class="highlight">📄 Política de cambios y garantías</a></li>
           <li><a href="#" class="es-only" style="font-size:11px;color:rgba(255,255,255,0.68);">San Francisco de Dos Ríos, SJ</a></li>
           <li><span class="es-only" style="font-size:11px;color:rgba(255,255,255,0.72);line-height:1.6;display:block;">Horario:<br>Lunes a viernes: 8:00 a.m. - 5:00 p.m.<br>Sábados: 8:00 a.m. - 3:00 p.m.<br>Domingos: 8:00 a.m. - 12:00 m.d.</span></li>
           <li><span class="en-only" style="font-size:11px;color:rgba(255,255,255,0.72);line-height:1.6;display:block;">Hours:<br>Monday-Friday: 8:00 a.m. - 5:00 p.m.<br>Saturday: 8:00 a.m. - 3:00 p.m.<br>Sunday: 8:00 a.m. - 12:00 p.m.</span></li>
@@ -908,6 +1091,26 @@ function setLang(l){
   document.addEventListener('contextmenu', function(e){
     e.preventDefault();
   });
+})();
+</script>
+
+
+<script>
+(function(){
+  const path = window.location.pathname.replace(/\/+$/, '');
+  const isPolicyRoute = path === '/politicasydevoluciones';
+  if(isPolicyRoute){
+    document.body.classList.add('policy-active');
+    document.title = 'Politica de cambios y garantias | Repuestos San Francisco';
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if(metaDescription){
+      metaDescription.setAttribute('content','Política de cambios, devoluciones y garantías de Repuestos San Francisco. Consulte condiciones, plazos, requisitos de factura, empaque y proceso de evaluación.');
+    }
+    setTimeout(function(){
+      const policy = document.getElementById('politicasydevoluciones');
+      if(policy){ policy.scrollIntoView({behavior:'instant', block:'start'}); }
+    }, 0);
+  }
 })();
 </script>
 
