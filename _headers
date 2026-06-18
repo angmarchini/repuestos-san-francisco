@@ -1,8 +1,10 @@
+/colaboradores1
+  X-Robots-Tag: noindex, nofollow, noarchive
+  Cache-Control: no-store
+/colaboradores1/
+  X-Robots-Tag: noindex, nofollow, noarchive
+  Cache-Control: no-store
 /politicasydevoluciones
-  X-Robots-Tag: index, follow
-/politicasydevoluciones/
-  X-Robots-Tag: index, follow
-/empleados
   X-Robots-Tag: noindex, nofollow
-/empleados/
+/politicasydevoluciones/
   X-Robots-Tag: noindex, nofollow

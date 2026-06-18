@@ -394,6 +394,232 @@ body.policy-active nav .nav-links a[href^="#"]{display:none!important;}
   .policy-card{padding:1.35rem;}
 }
 
+
+
+/* ─── COLABORADORES / RED INTERNA ─── */
+.collab-page{
+  display:none;
+  background:var(--white);
+  padding:0 1.5rem 5.5rem;
+  min-height:80vh;
+}
+body.collab-active .collab-page{display:block;}
+body.collab-active section:not(.collab-page){display:none!important;}
+body.collab-active .trust-bar{display:none!important;}
+body.collab-active footer{display:none!important;}
+body.collab-active nav .nav-links{display:none!important;}
+.collab-topbar{
+  background:var(--navy);
+  color:var(--white);
+  border-bottom:4px solid var(--red);
+  margin:0 -1.5rem 0;
+  padding:0.7rem 0;
+  overflow:hidden;
+  white-space:nowrap;
+  position:relative;
+}
+.collab-topbar-track{
+  display:inline-flex;
+  min-width:100%;
+  animation:collabMarquee 22s linear infinite;
+  font-size:13px;
+  font-weight:900;
+  letter-spacing:.3px;
+}
+.collab-topbar span{
+  padding-right:4rem;
+}
+@keyframes collabMarquee{
+  0%{transform:translateX(100%);} 
+  100%{transform:translateX(-100%);} 
+}
+.collab-wrapper{
+  max-width:1140px;
+  margin:0 auto;
+  padding-top:3.2rem;
+}
+.collab-hero{
+  background:var(--navy);
+  color:var(--white);
+  border-radius:28px;
+  padding:3rem;
+  border-bottom:5px solid var(--red);
+  box-shadow:0 22px 60px rgba(14,1,85,0.18);
+  margin-bottom:1.5rem;
+}
+.collab-hero .eyebrow{color:var(--white);opacity:.86;}
+.collab-hero h1{
+  color:var(--white);
+  font-size:clamp(2rem,4vw,3.25rem);
+  line-height:1.05;
+  font-weight:900;
+  letter-spacing:-.8px;
+  margin-bottom:1rem;
+}
+.collab-hero p{
+  color:rgba(255,255,255,.86);
+  max-width:760px;
+  font-weight:600;
+  line-height:1.8;
+}
+.collab-alert{
+  background:var(--red);
+  color:var(--white);
+  border-radius:20px;
+  padding:1.25rem 1.4rem;
+  margin:1.3rem 0 1.5rem;
+  box-shadow:0 16px 45px rgba(255,12,7,.18);
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+}
+.collab-alert-icon{font-size:28px;line-height:1;}
+.collab-alert strong{display:block;font-size:14px;font-weight:900;margin-bottom:2px;}
+.collab-alert p{font-size:13px;line-height:1.65;font-weight:700;color:var(--white);}
+.collab-grid-2{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1.2rem;
+  margin:1.5rem 0;
+}
+.collab-panel{
+  background:var(--white);
+  border:2px solid rgba(14,1,85,.12);
+  border-radius:22px;
+  padding:1.55rem;
+  box-shadow:0 16px 45px rgba(14,1,85,.07);
+}
+.collab-panel h2{
+  font-size:1.15rem;
+  font-weight:900;
+  color:var(--navy);
+  margin-bottom:1rem;
+}
+.collab-list{
+  list-style:none;
+  display:flex;
+  flex-direction:column;
+  gap:.78rem;
+}
+.collab-list li{
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  font-size:13px;
+  line-height:1.6;
+  color:rgba(14,1,85,.76);
+  font-weight:700;
+}
+.collab-list .ok,.collab-list .no{
+  width:24px;
+  height:24px;
+  border-radius:50%;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  flex:0 0 auto;
+  font-size:12px;
+  font-weight:900;
+}
+.collab-list .ok{background:var(--navy);color:var(--white);}
+.collab-list .no{background:var(--red);color:var(--white);}
+.collab-monitor{
+  background:var(--navy);
+  color:var(--white);
+  border-left:6px solid var(--red);
+  border-radius:20px;
+  padding:1.35rem 1.5rem;
+  margin:1.5rem 0;
+  font-size:13px;
+  line-height:1.75;
+  font-weight:700;
+}
+.catalog-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(245px,1fr));
+  gap:1rem;
+  margin-top:1.5rem;
+}
+.catalog-card{
+  background:var(--white);
+  border:2px solid rgba(14,1,85,.12);
+  border-radius:22px;
+  padding:1.25rem;
+  box-shadow:0 14px 35px rgba(14,1,85,.06);
+  display:flex;
+  flex-direction:column;
+  min-height:230px;
+  transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease;
+}
+.catalog-card:hover{
+  transform:translateY(-4px);
+  border-color:var(--red);
+  box-shadow:0 18px 45px rgba(14,1,85,.12);
+}
+.catalog-icon{
+  width:54px;
+  height:54px;
+  border-radius:18px;
+  background:var(--navy);
+  color:var(--white);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:27px;
+  margin-bottom:1rem;
+  box-shadow:inset 0 -8px 20px rgba(255,255,255,.08);
+}
+.catalog-card h3{
+  font-size:14px;
+  line-height:1.25;
+  font-weight:900;
+  color:var(--navy);
+  margin-bottom:.55rem;
+}
+.catalog-card p{
+  font-size:12px;
+  line-height:1.65;
+  color:rgba(14,1,85,.68);
+  font-weight:600;
+  margin-bottom:1rem;
+  flex:1;
+}
+.catalog-card a{
+  display:inline-flex;
+  justify-content:center;
+  align-items:center;
+  gap:8px;
+  background:var(--red);
+  color:var(--white);
+  border-radius:999px;
+  text-decoration:none;
+  padding:10px 14px;
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:.5px;
+  text-transform:uppercase;
+}
+.catalog-card a:hover{opacity:.9;}
+.collab-section-title{
+  font-size:clamp(1.55rem,2.5vw,2.2rem);
+  color:var(--navy);
+  font-weight:900;
+  margin:2rem 0 .5rem;
+  letter-spacing:-.4px;
+}
+.collab-section-sub{
+  color:rgba(14,1,85,.68);
+  max-width:720px;
+  font-size:14px;
+  line-height:1.75;
+  font-weight:600;
+}
+@media(max-width:768px){
+  .collab-page{padding:0 1.25rem 4rem;}
+  .collab-hero{padding:2rem 1.4rem;border-radius:22px;}
+  .collab-grid-2{grid-template-columns:1fr;}
+  .collab-topbar-track{animation-duration:18s;font-size:12px;}
+}
 </style>
 </head>
 <!-- Logo blanco embedded as Base64 for GitHub / Cloudflare Pages deployment -->
@@ -889,6 +1115,120 @@ body.policy-active nav .nav-links a[href^="#"]{display:none!important;}
   </div>
 </section>
 
+
+<!-- ══════════ COLABORADORES 1 / RED INTERNA ══════════ -->
+<section id="colaboradores1" class="collab-page" aria-labelledby="collab-title">
+  <div class="collab-topbar" aria-live="polite">
+    <div class="collab-topbar-track"><span id="collab-time-message">Cargando mensaje interno...</span></div>
+  </div>
+
+  <div class="collab-wrapper">
+    <div class="collab-hero">
+      <div class="eyebrow">Red interna · Repuestos San Francisco</div>
+      <h1 id="collab-title">Bienvenidos a la red interna de Repuestos San Francisco.</h1>
+      <p>Esta sección está diseñada como página de apertura para las computadoras del negocio. Utilizá este navegador exclusivamente para labores relacionadas con atención al cliente, búsqueda de repuestos, comparación de piezas y consulta de catálogos digitales.</p>
+    </div>
+
+    <div class="collab-alert">
+      <div class="collab-alert-icon">📌</div>
+      <div>
+        <strong>Mensaje importante para esta semana</strong>
+        <p>Domingo 21 de junio cerrado por celebración del día del padre.</p>
+      </div>
+    </div>
+
+    <div class="collab-grid-2">
+      <article class="collab-panel">
+        <h2>Cosas que hacer con nuestro navegador</h2>
+        <ul class="collab-list">
+          <li><span class="ok">✓</span><span>Buscar piezas para clientes.</span></li>
+          <li><span class="ok">✓</span><span>Comparar piezas con imágenes de internet.</span></li>
+          <li><span class="ok">✓</span><span>Usar catálogos digitales relacionados con repuestos, aceites, filtros, herramientas y mantenimiento vehicular.</span></li>
+        </ul>
+      </article>
+
+      <article class="collab-panel">
+        <h2>Cosas que no se deben hacer a través del navegador de Repuestos San Francisco</h2>
+        <ul class="collab-list">
+          <li><span class="no">!</span><span>Usar el internet para trámites personales.</span></li>
+          <li><span class="no">!</span><span>Ingresar a redes sociales para fines personales.</span></li>
+          <li><span class="no">!</span><span>Visitar páginas de deportes, agencias de carros, compras en línea o sitios que no estén relacionados con las actividades laborales.</span></li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="collab-monitor">
+      Recordatorio importante: toda actividad realizada desde la red y navegador de Repuestos San Francisco puede ser registrada, revisada y monitoreada para fines de seguridad, control interno y cumplimiento laboral.
+    </div>
+
+    <h2 class="collab-section-title">Catálogos digitales</h2>
+    <p class="collab-section-sub">Accesos rápidos para consultar información útil durante la atención a clientes: piezas, filtros, aceites, referencias, catálogos OEM, herramientas y consultas relacionadas con vehículos.</p>
+
+    <div class="catalog-grid">
+      <article class="catalog-card">
+        <div class="catalog-icon">🧾</div>
+        <h3>Registro Nacional Costa Rica</h3>
+        <p>Consulta institucional para verificaciones relacionadas con vehículos y datos registrales cuando sea necesario para la atención del cliente.</p>
+        <a href="https://www.rnpdigital.com/shopping/login.jspx" target="_blank" rel="noopener">Abrir catálogo</a>
+      </article>
+      <article class="catalog-card">
+        <div class="catalog-icon">🚗</div>
+        <h3>Partsouq</h3>
+        <p>Catálogo internacional útil para consultar referencias OEM, diagramas y compatibilidades por marca, modelo o número de parte.</p>
+        <a href="https://partsouq.com/en" target="_blank" rel="noopener">Abrir catálogo</a>
+      </article>
+      <article class="catalog-card">
+        <div class="catalog-icon">⚙️</div>
+        <h3>Partscatalog</h3>
+        <p>Plataforma de catálogos de piezas para identificar grupos, diagramas y referencias técnicas de diferentes fabricantes.</p>
+        <a href="https://www.parts-catalogs.com/us" target="_blank" rel="noopener">Abrir catálogo</a>
+      </article>
+      <article class="catalog-card">
+        <div class="catalog-icon">🔧</div>
+        <h3>Toyota Parts Catalog</h3>
+        <p>Catálogo especializado para referencias Toyota, códigos de piezas, grupos mecánicos y búsqueda por modelo o chasis.</p>
+        <a href="https://toyota.epc-data.com/" target="_blank" rel="noopener">Abrir catálogo</a>
+      </article>
+      <article class="catalog-card">
+        <div class="catalog-icon">🧰</div>
+        <h3>JsFilter</h3>
+        <p>Consulta de filtros automotrices y aplicaciones por vehículo para apoyar ventas de mantenimiento preventivo.</p>
+        <a href="https://www.jsfilter.jp/" target="_blank" rel="noopener">Abrir catálogo</a>
+      </article>
+      <article class="catalog-card">
+        <div class="catalog-icon">🛢️</div>
+        <h3>Castrol Oil Finder</h3>
+        <p>Guía para identificar lubricantes recomendados según marca, modelo, año y especificaciones del vehículo.</p>
+        <a href="https://www.castrol.com/castrol-global-oil-selector-maps" target="_blank" rel="noopener">Abrir catálogo</a>
+      </article>
+      <article class="catalog-card">
+        <div class="catalog-icon">📦</div>
+        <h3>Navemar Online Store</h3>
+        <p>Portal de consulta y compra para revisar disponibilidad de productos, repuestos y referencias manejadas por proveedor.</p>
+        <a href="https://navema.pa2.olk.topmanage.cloud/" target="_blank" rel="noopener">Abrir catálogo</a>
+      </article>
+      <article class="catalog-card">
+        <div class="catalog-icon">🛠️</div>
+        <h3>Capris</h3>
+        <p>Consulta de herramientas, equipos, insumos y productos técnicos útiles para operaciones y ventas relacionadas.</p>
+        <a href="https://www.capris.cr/" target="_blank" rel="noopener">Abrir catálogo</a>
+      </article>
+      <article class="catalog-card">
+        <div class="catalog-icon">🧪</div>
+        <h3>Liqui Moly Oil Guide</h3>
+        <p>Guía para seleccionar aceites, aditivos y fluidos recomendados de acuerdo con especificaciones del vehículo.</p>
+        <a href="https://www.liqui-moly.com/en/service/oil-guide.html?srsltid=AfmBOordb4qTGwmwD8EnD2_fc3PvjYBZdv5eZwfaao94P41VlXW_mdv-" target="_blank" rel="noopener">Abrir catálogo</a>
+      </article>
+      <article class="catalog-card">
+        <div class="catalog-icon">🔩</div>
+        <h3>Sankei 555</h3>
+        <p>Catálogo de componentes de suspensión y dirección para revisar referencias de rótulas, terminales, brazos y piezas relacionadas.</p>
+        <a href="http://www.sankei-555.com/" target="_blank" rel="noopener">Abrir catálogo</a>
+      </article>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="footer-inner">
     <div class="footer-grid">
@@ -1131,6 +1471,71 @@ function setLang(l){
       if(policy){ policy.scrollIntoView({behavior:'instant', block:'start'}); }
     }, 0);
   }
+})();
+</script>
+
+
+<script>
+(function(){
+  const path = window.location.pathname.replace(/\/+$/, '');
+  const isCollaboratorRoute = path === '/colaboradores1';
+  if(!isCollaboratorRoute) return;
+
+  document.body.classList.add('collab-active');
+  document.title = 'Red interna de colaboradores | Repuestos San Francisco';
+
+  const metaDescription = document.querySelector('meta[name="description"]');
+  if(metaDescription){
+    metaDescription.setAttribute('content','Red interna de colaboradores de Repuestos San Francisco para acceso a catálogos digitales, recordatorios operativos y uso responsable del navegador interno.');
+  }
+
+  function getCostaRicaMinutes(){
+    const parts = new Intl.DateTimeFormat('en-US', {
+      timeZone:'America/Costa_Rica',
+      hour:'2-digit',
+      minute:'2-digit',
+      hour12:false
+    }).formatToParts(new Date());
+    const hour = Number(parts.find(p=>p.type === 'hour').value);
+    const minute = Number(parts.find(p=>p.type === 'minute').value);
+    return (hour * 60) + minute;
+  }
+
+  function messageByTime(){
+    const minutes = getCostaRicaMinutes();
+    if(minutes >= 0 && minutes < 450){
+      return 'Feliz descanso.';
+    }
+    if(minutes >= 450 && minutes < 570){
+      return '¡Buenos días, por favor revisa que todos los espacios de aceites, aditivos, y químicos atrás del mostrador estén llenos y limpios. Mostrador impecable y alfombras en orden!';
+    }
+    if(minutes >= 570 && minutes < 660){
+      return '¿Hay mercadería que guardar? ¿Aceites que rellenar? ¿El mostrador está limpio? ¿Las urnas ordenadas y sin polvo?';
+    }
+    if(minutes >= 660 && minutes < 840){
+      return 'Horarios almuerzo: William R. 11:00 / Carlos S. 12:00 / Yanssy R. 12:10 / Rafael G. 13:00 / Gabriel Q. 13:10 / Marco S. 14:00';
+    }
+    if(minutes >= 840 && minutes < 1020){
+      return '¿Hay mercadería que guardar? ¿Aceites que rellenar? ¿El mostrador está limpio? ¿Las urnas ordenadas y sin polvo?';
+    }
+    return '¡Buenas noches!';
+  }
+
+  function updateCollaboratorBar(){
+    const target = document.getElementById('collab-time-message');
+    if(target){
+      const message = messageByTime();
+      target.textContent = message + '   •   ' + message;
+    }
+  }
+
+  updateCollaboratorBar();
+  setInterval(updateCollaboratorBar, 60000);
+
+  setTimeout(function(){
+    const collab = document.getElementById('colaboradores1');
+    if(collab){ collab.scrollIntoView({behavior:'instant', block:'start'}); }
+  }, 0);
 })();
 </script>
 
