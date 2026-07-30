@@ -291,13 +291,13 @@ footer{background:var(--navy);border-top:4px solid var(--red);padding:3.2rem 1.5
 .brands-carousel::before,.brands-carousel::after{content:'';position:absolute;top:0;bottom:0;width:90px;z-index:2;pointer-events:none;}
 .brands-carousel::before{left:0;background:linear-gradient(90deg,var(--white),transparent);}
 .brands-carousel::after{right:0;background:linear-gradient(270deg,var(--white),transparent);}
-.brands-track{display:flex;gap:16px;width:max-content;animation:brandScroll 75s linear infinite;}
+.brands-track{display:flex;gap:22px;width:max-content;animation:brandScroll 85s linear infinite;}
 .brands-carousel:hover .brands-track{animation-play-state:paused;}
-.brand-logo-card{width:150px;height:92px;background:var(--white);border:2px solid rgba(14,1,85,0.12);border-radius:18px;padding:.75rem;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.35rem;box-shadow:0 12px 28px rgba(14,1,85,0.06);flex:0 0 auto;}
-.brand-logo-card img{max-width:116px;max-height:42px;object-fit:contain;display:block;}
-.brand-logo-card span{font-size:9px;font-weight:900;color:rgba(14,1,85,0.72);text-align:center;line-height:1.1;text-transform:uppercase;}
+.brand-logo-card{width:210px;height:132px;background:var(--white);border:2px solid rgba(14,1,85,0.12);border-radius:22px;padding:1rem;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.55rem;box-shadow:0 14px 34px rgba(14,1,85,0.08);flex:0 0 auto;}
+.brand-logo-card img{max-width:172px;max-height:72px;object-fit:contain;display:block;}
+.brand-logo-card span{font-size:11px;font-weight:900;color:rgba(14,1,85,0.72);text-align:center;line-height:1.15;text-transform:uppercase;}
 @keyframes brandScroll{0%{transform:translateX(-50%);}100%{transform:translateX(0);}}
-@media(max-width:768px){.product-image-wrap{height:150px}.brands-track{animation-duration:58s}.brand-logo-card{width:138px;height:86px}.brands-carousel::before,.brands-carousel::after{width:48px}}
+@media(max-width:768px){.product-image-wrap{height:150px}.brands-track{gap:14px;animation-duration:68s}.brand-logo-card{width:172px;height:108px;padding:.8rem}.brand-logo-card img{max-width:140px;max-height:58px}.brand-logo-card span{font-size:10px}.brands-carousel::before,.brands-carousel::after{width:48px}}
 
 
 /* ─── POLICY PAGE / POLITICAS Y DEVOLUCIONES ─── */
@@ -533,6 +533,40 @@ body.collab-active nav .nav-links{display:none!important;}
   font-size:13px;
   line-height:1.75;
   font-weight:700;
+}
+.catalog-postit{
+  position:relative;
+  max-width:760px;
+  margin:2.25rem auto 2rem;
+  padding:1.65rem 1.8rem 1.55rem;
+  background:#ffffff;
+  color:var(--navy);
+  border:3px solid var(--red);
+  border-radius:8px 8px 26px 8px;
+  box-shadow:10px 12px 0 rgba(14,1,85,.14),0 20px 45px rgba(14,1,85,.12);
+  transform:rotate(-1deg);
+  text-align:center;
+}
+.catalog-postit::before{
+  content:'📌';
+  position:absolute;
+  top:-21px;
+  left:50%;
+  transform:translateX(-50%) rotate(8deg);
+  font-size:34px;
+}
+.catalog-postit strong{
+  display:block;
+  color:var(--red);
+  font-size:clamp(1.15rem,2.3vw,1.55rem);
+  font-weight:900;
+  margin-bottom:.55rem;
+}
+.catalog-postit p{
+  font-size:14px;
+  line-height:1.7;
+  font-weight:750;
+  margin:0;
 }
 .catalog-grid{
   display:grid;
@@ -1133,7 +1167,7 @@ body.collab-active nav .nav-links{display:none!important;}
       <div class="collab-alert-icon">📌</div>
       <div>
         <strong>Mensaje importante para esta semana</strong>
-        <p>Domingo 21 de junio cerrado por celebración del día del padre.</p>
+        <p>Cerrado el 2 de agosto por el feriado del Día de la Virgen de los Ángeles.</p>
       </div>
     </div>
 
@@ -1160,6 +1194,11 @@ body.collab-active nav .nav-links{display:none!important;}
     <div class="collab-monitor">
       Recordatorio importante: toda actividad realizada desde la red y navegador de Repuestos San Francisco puede ser registrada, revisada y monitoreada para fines de seguridad, control interno y cumplimiento laboral.
     </div>
+
+    <aside class="catalog-postit" aria-label="Invitación a consultar los catálogos digitales">
+      <strong>¡Aprovechá los catálogos digitales!</strong>
+      <p>Antes de responder una consulta, explorá las herramientas disponibles abajo. Pueden ayudarte a identificar la pieza correcta, confirmar aplicaciones, comparar referencias y atender al cliente con mayor precisión.</p>
+    </aside>
 
     <h2 class="collab-section-title">Catálogos digitales</h2>
     <p class="collab-section-sub">Accesos rápidos para consultar información útil durante la atención a clientes: piezas, filtros, aceites, referencias, catálogos OEM, herramientas y consultas relacionadas con vehículos.</p>
@@ -1224,6 +1263,18 @@ body.collab-active nav .nav-links{display:none!important;}
         <h3>Sankei 555</h3>
         <p>Catálogo de componentes de suspensión y dirección para revisar referencias de rótulas, terminales, brazos y piezas relacionadas.</p>
         <a href="http://www.sankei-555.com/" target="_blank" rel="noopener">Abrir catálogo</a>
+      </article>
+      <article class="catalog-card">
+        <div class="catalog-icon">🚙</div>
+        <h3>Vehiventa</h3>
+        <p>Portal costarricense para consultar vehículos nuevos y usados, comparar marcas, modelos, características y referencias del mercado automotor nacional.</p>
+        <a href="https://www.vehiventa.com" target="_blank" rel="noopener">Abrir catálogo</a>
+      </article>
+      <article class="catalog-card">
+        <div class="catalog-icon">🛞</div>
+        <h3>JNBK Brake Catalogue</h3>
+        <p>Catálogo especializado en frenos para buscar aplicaciones y referencias de pastillas, zapatas y otros componentes según el vehículo.</p>
+        <a href="https://www.jnbk-brakes.com/catalogue/cars" target="_blank" rel="noopener">Abrir catálogo</a>
       </article>
     </div>
   </div>
@@ -1513,7 +1564,7 @@ function setLang(l){
       return '¿Hay mercadería que guardar? ¿Aceites que rellenar? ¿El mostrador está limpio? ¿Las urnas ordenadas y sin polvo?';
     }
     if(minutes >= 660 && minutes < 840){
-      return 'Horarios almuerzo: William R. 11:00 / Carlos S. 12:00 / Yanssy R. 12:10 / Rafael G. 13:00 / Gabriel Q. 13:10 / Marco S. 14:00';
+      return 'Horarios almuerzo: William R. 11:00 / Carlos S. 12:00 / Yanssy R. 12:10 / Gustavo V. 12:45 / Rafael G. 13:00 / Marco S. 13:50';
     }
     if(minutes >= 840 && minutes < 1020){
       return '¿Hay mercadería que guardar? ¿Aceites que rellenar? ¿El mostrador está limpio? ¿Las urnas ordenadas y sin polvo?';
