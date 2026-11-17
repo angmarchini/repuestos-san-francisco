@@ -399,7 +399,14 @@ body.policy-active nav .nav-links a[href^="#"]{display:none!important;}
 /* ─── COLABORADORES / RED INTERNA ─── */
 .collab-page{
   display:none;
-  background:var(--white);
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 10% 8%,rgba(255,255,255,.96) 0 2px,transparent 3px),
+    radial-gradient(circle at 84% 18%,rgba(255,255,255,.9) 0 3px,transparent 4px),
+    linear-gradient(180deg,#eef8f4 0%,#ffffff 38%,#f7fbff 100%);
+  background-size:110px 110px,155px 155px,auto;
   padding:0 1.5rem 5.5rem;
   min-height:80vh;
 }
@@ -408,15 +415,48 @@ body.collab-active section:not(.collab-page){display:none!important;}
 body.collab-active .trust-bar{display:none!important;}
 body.collab-active footer{display:none!important;}
 body.collab-active nav .nav-links{display:none!important;}
+body.collab-active nav{
+  background:linear-gradient(90deg,#0e0155 0%,#0b5d3b 50%,#0e0155 100%);
+  box-shadow:0 8px 28px rgba(8,61,40,.22);
+}
+.collab-snow{
+  position:fixed;
+  inset:0;
+  z-index:9998;
+  pointer-events:none;
+  overflow:hidden;
+}
+.collab-snowflake{
+  position:absolute;
+  top:-12vh;
+  color:#ffffff;
+  text-shadow:0 0 5px rgba(14,1,85,.28);
+  opacity:.9;
+  animation-name:collabSnowfall,collabSnowSway;
+  animation-timing-function:linear,ease-in-out;
+  animation-iteration-count:infinite,infinite;
+}
+@keyframes collabSnowfall{
+  to{transform:translateY(120vh) rotate(360deg);}
+}
+@keyframes collabSnowSway{
+  0%,100%{margin-left:-12px;}
+  50%{margin-left:18px;}
+}
 .collab-topbar{
-  background:var(--navy);
+  background:linear-gradient(90deg,#0b5d3b,var(--navy),#b11226,#0b5d3b);
+  background-size:300% 100%;
+  animation:collabChristmasBar 12s linear infinite;
   color:var(--white);
-  border-bottom:4px solid var(--red);
+  border-bottom:4px solid #d4af37;
   margin:0 -1.5rem 0;
   padding:0.7rem 0;
   overflow:hidden;
   white-space:nowrap;
   position:relative;
+}
+@keyframes collabChristmasBar{
+  to{background-position:300% 0;}
 }
 .collab-topbar-track{
   display:inline-flex;
@@ -437,45 +477,93 @@ body.collab-active nav .nav-links{display:none!important;}
   max-width:1140px;
   margin:0 auto;
   padding-top:3.2rem;
+  position:relative;
+  z-index:2;
 }
-.collab-hero{
-  background:var(--navy);
+.collab-hero-carousel{
+  position:relative;
+  display:grid;
+  overflow:hidden;
+  background:linear-gradient(135deg,#0e0155 0%,#0b5d3b 56%,#8b1022 100%);
   color:var(--white);
   border-radius:28px;
-  padding:3rem;
-  border-bottom:5px solid var(--red);
-  box-shadow:0 22px 60px rgba(14,1,85,0.18);
+  border:1px solid rgba(255,255,255,.22);
+  border-bottom:5px solid #d4af37;
+  box-shadow:0 22px 60px rgba(8,61,40,.22);
   margin-bottom:1.5rem;
 }
-.collab-hero .eyebrow{color:var(--white);opacity:.86;}
-.collab-hero h1{
+.collab-hero-carousel::before,
+.collab-hero-carousel::after{
+  position:absolute;
+  top:18px;
+  z-index:3;
+  font-size:clamp(2rem,4vw,3.1rem);
+  filter:drop-shadow(0 8px 12px rgba(0,0,0,.2));
+  pointer-events:none;
+}
+.collab-hero-carousel::before{content:'🎄';right:24px;}
+.collab-hero-carousel::after{content:'✨';left:24px;}
+.collab-slide{
+  grid-area:1/1;
+  min-height:310px;
+  padding:3.4rem 4rem 4.4rem;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  opacity:0;
+  visibility:hidden;
+  transform:translateX(28px);
+  transition:opacity .65s ease,transform .65s ease,visibility .65s;
+  pointer-events:none;
+}
+.collab-slide.is-active{
+  opacity:1;
+  visibility:visible;
+  transform:translateX(0);
+  pointer-events:auto;
+}
+.collab-slide .eyebrow{color:var(--white);opacity:.86;}
+.collab-slide h1,
+.collab-slide h2{
   color:var(--white);
   font-size:clamp(2rem,4vw,3.25rem);
   line-height:1.05;
   font-weight:900;
   letter-spacing:-.8px;
   margin-bottom:1rem;
+  max-width:880px;
 }
-.collab-hero p{
+.collab-slide p{
   color:rgba(255,255,255,.86);
   max-width:760px;
   font-weight:600;
   line-height:1.8;
 }
-.collab-alert{
-  background:var(--red);
-  color:var(--white);
-  border-radius:20px;
-  padding:1.25rem 1.4rem;
-  margin:1.3rem 0 1.5rem;
-  box-shadow:0 16px 45px rgba(255,12,7,.18);
+.collab-carousel-dots{
+  position:absolute;
+  left:50%;
+  bottom:20px;
+  z-index:4;
+  transform:translateX(-50%);
   display:flex;
-  gap:12px;
-  align-items:flex-start;
+  gap:10px;
 }
-.collab-alert-icon{font-size:28px;line-height:1;}
-.collab-alert strong{display:block;font-size:14px;font-weight:900;margin-bottom:2px;}
-.collab-alert p{font-size:13px;line-height:1.65;font-weight:700;color:var(--white);}
+.collab-carousel-dot{
+  width:11px;
+  height:11px;
+  padding:0;
+  border:2px solid var(--white);
+  border-radius:50%;
+  background:transparent;
+  cursor:pointer;
+  transition:width .25s ease,background .25s ease,border-radius .25s ease;
+}
+.collab-carousel-dot.is-active{
+  width:34px;
+  border-radius:999px;
+  background:#d4af37;
+  border-color:#d4af37;
+}
 .collab-grid-2{
   display:grid;
   grid-template-columns:1fr 1fr;
@@ -534,40 +622,6 @@ body.collab-active nav .nav-links{display:none!important;}
   line-height:1.75;
   font-weight:700;
 }
-.catalog-postit{
-  position:relative;
-  max-width:760px;
-  margin:2.25rem auto 2rem;
-  padding:1.65rem 1.8rem 1.55rem;
-  background:#ffffff;
-  color:var(--navy);
-  border:3px solid var(--red);
-  border-radius:8px 8px 26px 8px;
-  box-shadow:10px 12px 0 rgba(14,1,85,.14),0 20px 45px rgba(14,1,85,.12);
-  transform:rotate(-1deg);
-  text-align:center;
-}
-.catalog-postit::before{
-  content:'📌';
-  position:absolute;
-  top:-21px;
-  left:50%;
-  transform:translateX(-50%) rotate(8deg);
-  font-size:34px;
-}
-.catalog-postit strong{
-  display:block;
-  color:var(--red);
-  font-size:clamp(1.15rem,2.3vw,1.55rem);
-  font-weight:900;
-  margin-bottom:.55rem;
-}
-.catalog-postit p{
-  font-size:14px;
-  line-height:1.7;
-  font-weight:750;
-  margin:0;
-}
 .catalog-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(245px,1fr));
@@ -587,14 +641,14 @@ body.collab-active nav .nav-links{display:none!important;}
 }
 .catalog-card:hover{
   transform:translateY(-4px);
-  border-color:var(--red);
+  border-color:#0b5d3b;
   box-shadow:0 18px 45px rgba(14,1,85,.12);
 }
 .catalog-icon{
   width:54px;
   height:54px;
   border-radius:18px;
-  background:var(--navy);
+  background:linear-gradient(145deg,#0e0155,#0b5d3b);
   color:var(--white);
   display:flex;
   align-items:center;
@@ -623,7 +677,7 @@ body.collab-active nav .nav-links{display:none!important;}
   justify-content:center;
   align-items:center;
   gap:8px;
-  background:var(--red);
+  background:linear-gradient(90deg,#b11226,#ff0c07);
   color:var(--white);
   border-radius:999px;
   text-decoration:none;
@@ -650,9 +704,17 @@ body.collab-active nav .nav-links{display:none!important;}
 }
 @media(max-width:768px){
   .collab-page{padding:0 1.25rem 4rem;}
-  .collab-hero{padding:2rem 1.4rem;border-radius:22px;}
+  .collab-hero-carousel{border-radius:22px;}
+  .collab-slide{min-height:360px;padding:4.5rem 1.4rem 4.2rem;}
+  .collab-hero-carousel::before{right:14px;}
+  .collab-hero-carousel::after{left:14px;}
   .collab-grid-2{grid-template-columns:1fr;}
   .collab-topbar-track{animation-duration:18s;font-size:12px;}
+}
+@media(prefers-reduced-motion:reduce){
+  .collab-snowflake{animation:none!important;display:none;}
+  .collab-topbar{animation:none;}
+  .collab-slide{transition:none;}
 }
 </style>
 </head>
@@ -1152,22 +1214,26 @@ body.collab-active nav .nav-links{display:none!important;}
 
 <!-- ══════════ COLABORADORES 1 / RED INTERNA ══════════ -->
 <section id="colaboradores1" class="collab-page" aria-labelledby="collab-title">
+  <div id="collab-snow" class="collab-snow" aria-hidden="true"></div>
   <div class="collab-topbar" aria-live="polite">
     <div class="collab-topbar-track"><span id="collab-time-message">Cargando mensaje interno...</span></div>
   </div>
 
   <div class="collab-wrapper">
-    <div class="collab-hero">
-      <div class="eyebrow">Red interna · Repuestos San Francisco</div>
-      <h1 id="collab-title">Bienvenidos a la red interna de Repuestos San Francisco.</h1>
-      <p>Utilizá este navegador exclusivamente para labores relacionadas con atención al cliente, búsqueda de repuestos, comparación de piezas y consulta de catálogos digitales.</p>
-    </div>
-
-    <div class="collab-alert">
-      <div class="collab-alert-icon">📌</div>
-      <div>
-        <strong>Mensaje importante para esta semana</strong>
-        <p>Cerrado el 2 de agosto por el feriado del Día de la Virgen de los Ángeles.</p>
+    <div id="collab-carousel" class="collab-hero-carousel" aria-roledescription="carousel" aria-label="Mensajes internos para colaboradores">
+      <div class="collab-slide is-active" role="group" aria-roledescription="slide" aria-label="1 de 2">
+        <div class="eyebrow">Red interna · Repuestos San Francisco</div>
+        <h1 id="collab-title">Bienvenidos a la red interna de Repuestos San Francisco.</h1>
+        <p>Utilizá este navegador exclusivamente para labores relacionadas con atención al cliente, búsqueda de repuestos, comparación de piezas y consulta de catálogos digitales.</p>
+      </div>
+      <div class="collab-slide" role="group" aria-roledescription="slide" aria-label="2 de 2" aria-hidden="true">
+        <div class="eyebrow">Herramientas para una mejor atención</div>
+        <h2>¡Aprovechá los catálogos digitales!</h2>
+        <p>Antes de responder una consulta, explorá las herramientas disponibles abajo. Pueden ayudarte a identificar la pieza correcta, confirmar aplicaciones, comparar referencias y atender al cliente con mayor precisión.</p>
+      </div>
+      <div class="collab-carousel-dots" aria-label="Seleccionar mensaje">
+        <button class="collab-carousel-dot is-active" type="button" aria-label="Mostrar mensaje 1" aria-current="true"></button>
+        <button class="collab-carousel-dot" type="button" aria-label="Mostrar mensaje 2" aria-current="false"></button>
       </div>
     </div>
 
@@ -1194,11 +1260,6 @@ body.collab-active nav .nav-links{display:none!important;}
     <div class="collab-monitor">
       Recordatorio importante: toda actividad realizada desde la red y navegador de Repuestos San Francisco puede ser registrada, revisada y monitoreada para fines de seguridad, control interno y cumplimiento laboral.
     </div>
-
-    <aside class="catalog-postit" aria-label="Invitación a consultar los catálogos digitales">
-      <strong>¡Aprovechá los catálogos digitales!</strong>
-      <p>Antes de responder una consulta, explorá las herramientas disponibles abajo. Pueden ayudarte a identificar la pieza correcta, confirmar aplicaciones, comparar referencias y atender al cliente con mayor precisión.</p>
-    </aside>
 
     <h2 class="collab-section-title">Catálogos digitales</h2>
     <p class="collab-section-sub">Accesos rápidos para consultar información útil durante la atención a clientes: piezas, filtros, aceites, referencias, catálogos OEM, herramientas y consultas relacionadas con vehículos.</p>
@@ -1229,6 +1290,12 @@ body.collab-active nav .nav-links{display:none!important;}
         <a href="https://toyota.epc-data.com/" target="_blank" rel="noopener">Abrir catálogo</a>
       </article>
       <article class="catalog-card">
+        <div class="catalog-icon">🚘</div>
+        <h3>ToyoDIY</h3>
+        <p>Catálogo de piezas Toyota y Lexus para consultar diagramas, números OEM y aplicaciones por modelo, año o número de chasis.</p>
+        <a href="https://www.toyodiy.com" target="_blank" rel="noopener">Abrir catálogo</a>
+      </article>
+      <article class="catalog-card">
         <div class="catalog-icon">🧰</div>
         <h3>JsFilter</h3>
         <p>Consulta de filtros automotrices y aplicaciones por vehículo para apoyar ventas de mantenimiento preventivo.</p>
@@ -1238,7 +1305,7 @@ body.collab-active nav .nav-links{display:none!important;}
         <div class="catalog-icon">🛢️</div>
         <h3>Castrol Oil Finder</h3>
         <p>Guía para identificar lubricantes recomendados según marca, modelo, año y especificaciones del vehículo.</p>
-        <a href="https://www.castrol.com/castrol-global-oil-selector-maps" target="_blank" rel="noopener">Abrir catálogo</a>
+        <a href="https://www.castrol.com/castrol-global-oil-selector-maps/" target="_blank" rel="noopener">Abrir catálogo</a>
       </article>
       <article class="catalog-card">
         <div class="catalog-icon">📦</div>
@@ -1256,7 +1323,13 @@ body.collab-active nav .nav-links{display:none!important;}
         <div class="catalog-icon">🧪</div>
         <h3>Liqui Moly Oil Guide</h3>
         <p>Guía para seleccionar aceites, aditivos y fluidos recomendados de acuerdo con especificaciones del vehículo.</p>
-        <a href="https://www.liqui-moly.com/en/service/oil-guide.html?srsltid=AfmBOordb4qTGwmwD8EnD2_fc3PvjYBZdv5eZwfaao94P41VlXW_mdv-" target="_blank" rel="noopener">Abrir catálogo</a>
+        <a href="https://www.liqui-moly.com/es/servicios/guia-de-aceites.html" target="_blank" rel="noopener">Abrir catálogo</a>
+      </article>
+      <article class="catalog-card">
+        <div class="catalog-icon">🛞</div>
+        <h3>KYB Catalog</h3>
+        <p>Catálogo especializado en amortiguadores, struts y componentes de suspensión KYB para localizar aplicaciones según el vehículo.</p>
+        <a href="https://www.kyb.com/catalog/" target="_blank" rel="noopener">Abrir catálogo</a>
       </article>
       <article class="catalog-card">
         <div class="catalog-icon">🔩</div>
@@ -1539,6 +1612,73 @@ function setLang(l){
   if(metaDescription){
     metaDescription.setAttribute('content','Red interna de colaboradores de Repuestos San Francisco para acceso a catálogos digitales, recordatorios operativos y uso responsable del navegador interno.');
   }
+
+  function createChristmasSnow(){
+    const snow = document.getElementById('collab-snow');
+    if(!snow || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const fragment = document.createDocumentFragment();
+    const symbols = ['❄','❅','❆','•'];
+    for(let index = 0; index < 46; index += 1){
+      const flake = document.createElement('span');
+      const fallDuration = 9 + Math.random() * 11;
+      const swayDuration = 2.8 + Math.random() * 3.2;
+      flake.className = 'collab-snowflake';
+      flake.textContent = symbols[index % symbols.length];
+      flake.style.left = (Math.random() * 100) + 'vw';
+      flake.style.fontSize = (8 + Math.random() * 17) + 'px';
+      flake.style.opacity = String(.35 + Math.random() * .6);
+      flake.style.animationDuration = fallDuration + 's,' + swayDuration + 's';
+      flake.style.animationDelay = (-Math.random() * fallDuration) + 's,' + (-Math.random() * swayDuration) + 's';
+      fragment.appendChild(flake);
+    }
+    snow.appendChild(fragment);
+  }
+
+  function startCollaboratorCarousel(){
+    const carousel = document.getElementById('collab-carousel');
+    if(!carousel) return;
+
+    const slides = Array.from(carousel.querySelectorAll('.collab-slide'));
+    const dots = Array.from(carousel.querySelectorAll('.collab-carousel-dot'));
+    let activeIndex = 0;
+    let rotationTimer;
+
+    function showSlide(nextIndex){
+      activeIndex = (nextIndex + slides.length) % slides.length;
+      slides.forEach(function(slide,index){
+        const isActive = index === activeIndex;
+        slide.classList.toggle('is-active',isActive);
+        slide.setAttribute('aria-hidden',String(!isActive));
+      });
+      dots.forEach(function(dot,index){
+        const isActive = index === activeIndex;
+        dot.classList.toggle('is-active',isActive);
+        dot.setAttribute('aria-current',String(isActive));
+      });
+    }
+
+    function beginRotation(){
+      window.clearInterval(rotationTimer);
+      rotationTimer = window.setInterval(function(){
+        showSlide(activeIndex + 1);
+      },8000);
+    }
+
+    dots.forEach(function(dot,index){
+      dot.addEventListener('click',function(){
+        showSlide(index);
+        beginRotation();
+      });
+    });
+    carousel.addEventListener('mouseenter',function(){ window.clearInterval(rotationTimer); });
+    carousel.addEventListener('mouseleave',beginRotation);
+    showSlide(0);
+    beginRotation();
+  }
+
+  createChristmasSnow();
+  startCollaboratorCarousel();
 
   function getCostaRicaMinutes(){
     const parts = new Intl.DateTimeFormat('en-US', {
