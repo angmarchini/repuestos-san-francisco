@@ -428,6 +428,39 @@ body.collab-active nav{
 }
 @keyframes collabSnowfall{to{transform:translateY(120vh) rotate(360deg);}}
 @keyframes collabSnowSway{0%,100%{margin-left:-12px;}50%{margin-left:18px;}}
+.collab-sleigh{
+  position:fixed;
+  top:112px;
+  left:0;
+  z-index:10001;
+  display:flex;
+  align-items:center;
+  gap:.35rem;
+  width:max-content;
+  white-space:nowrap;
+  pointer-events:none;
+  filter:drop-shadow(0 8px 8px rgba(14,1,85,.3));
+  transform:translateX(-125%);
+  animation:collabSleighRide 8s cubic-bezier(.24,.65,.38,1) .35s 1 forwards;
+}
+.collab-sleigh-trail{
+  color:#d4af37;
+  font-size:clamp(1rem,2vw,1.5rem);
+  letter-spacing:.2rem;
+  animation:collabTwinkle .75s ease-in-out infinite alternate;
+}
+.collab-sleigh-santa{font-size:clamp(2.2rem,4.6vw,4.2rem);}
+.collab-sleigh-rope{font-size:clamp(1rem,2vw,1.6rem);color:#d4af37;letter-spacing:-.2rem;}
+.collab-sleigh-reindeer{font-size:clamp(2rem,4.3vw,3.9rem);letter-spacing:-.35rem;}
+@keyframes collabSleighRide{
+  0%{transform:translateX(-125%) translateY(18px) rotate(-2deg);opacity:0;}
+  8%{opacity:1;}
+  30%{transform:translateX(24vw) translateY(-10px) rotate(1deg);}
+  58%{transform:translateX(54vw) translateY(18px) rotate(-1deg);}
+  82%{opacity:1;}
+  100%{transform:translateX(calc(100vw + 40px)) translateY(-8px) rotate(1deg);opacity:0;}
+}
+@keyframes collabTwinkle{from{opacity:.35;transform:scale(.85);}to{opacity:1;transform:scale(1.12);}}
 .collab-topbar{
   background:linear-gradient(90deg,#0b5d3b,var(--navy),#b11226,#0b5d3b);
   background-size:300% 100%;
@@ -654,6 +687,7 @@ body.collab-active nav{
 }
 @media(max-width:768px){
   .collab-page{padding:0 1.25rem 4rem;}
+  .collab-sleigh{top:102px;animation-duration:7s;}
   .collab-hero-carousel{border-radius:22px;}
   .collab-slide{min-height:360px;padding:4.5rem 1.4rem 4.2rem;}
   .collab-hero-carousel::before{right:14px;}
@@ -663,6 +697,7 @@ body.collab-active nav{
 }
 @media(prefers-reduced-motion:reduce){
   .collab-snowflake{animation:none!important;display:none;}
+  .collab-sleigh{display:none;}
   .collab-topbar{animation:none;}
   .collab-slide{transition:none;}
 }
@@ -1165,6 +1200,12 @@ body.collab-active nav{
 <!-- ══════════ COLABORADORES 1 / RED INTERNA ══════════ -->
 <section id="colaboradores1" class="collab-page" aria-labelledby="collab-title">
   <div id="collab-snow" class="collab-snow" aria-hidden="true"></div>
+  <div class="collab-sleigh" aria-hidden="true">
+    <span class="collab-sleigh-trail">✦ ✧ ✦</span>
+    <span class="collab-sleigh-santa">🎅🛷</span>
+    <span class="collab-sleigh-rope">﹏﹏</span>
+    <span class="collab-sleigh-reindeer">🦌 🦌</span>
+  </div>
   <div class="collab-topbar" aria-live="polite">
     <div class="collab-topbar-track"><span id="collab-time-message">Cargando mensaje interno...</span></div>
   </div>
@@ -1298,6 +1339,42 @@ body.collab-active nav{
         <h3>JNBK Brake Catalogue</h3>
         <p>Catálogo especializado en frenos para buscar aplicaciones y referencias de pastillas, zapatas y otros componentes según el vehículo.</p>
         <a href="https://www.jnbk-brakes.com/catalogue/cars" target="_blank" rel="noopener">Abrir catálogo</a>
+      </article>
+      <article class="catalog-card">
+        <div class="catalog-icon">🛑</div>
+        <h3>American Black</h3>
+        <p>Catálogo de componentes de freno American Black para consultar referencias de pastillas, discos, zapatas y productos relacionados.</p>
+        <a href="https://catalog.americanblack.com" target="_blank" rel="noopener">Abrir catálogo</a>
+      </article>
+      <article class="catalog-card">
+        <div class="catalog-icon">🛢️</div>
+        <h3>Kroon-Oil</h3>
+        <p>Buscador de lubricantes que recomienda aceites, refrigerantes y otros fluidos, con capacidades e intervalos de servicio según el vehículo.</p>
+        <a href="https://www.kroon-oil.com/en/" target="_blank" rel="noopener">Abrir catálogo</a>
+      </article>
+      <article class="catalog-card">
+        <div class="catalog-icon">💧</div>
+        <h3>OILSfinder</h3>
+        <p>Guía de aceites y fluidos automotrices para consultar viscosidades, refrigerantes, capacidades e intervalos de servicio por vehículo.</p>
+        <a href="https://oils-finder.com" target="_blank" rel="noopener">Abrir catálogo</a>
+      </article>
+      <article class="catalog-card">
+        <div class="catalog-icon">⚡</div>
+        <h3>Spark Plug Cross Reference</h3>
+        <p>Herramienta para buscar equivalencias de bujías entre marcas a partir del modelo o número de referencia conocido.</p>
+        <a href="https://www.sparkplug-crossreference.com" target="_blank" rel="noopener">Abrir catálogo</a>
+      </article>
+      <article class="catalog-card">
+        <div class="catalog-icon">🔌</div>
+        <h3>NGK Part Finder</h3>
+        <p>Buscador oficial NGK y NTK para localizar bujías, componentes de encendido y sensores según la aplicación del vehículo.</p>
+        <a href="https://ngksparkplugs.com/en/part-finder" target="_blank" rel="noopener">Abrir catálogo</a>
+      </article>
+      <article class="catalog-card">
+        <div class="catalog-icon">⚙️</div>
+        <h3>GSP Latin America</h3>
+        <p>Catálogo para buscar semiejes, mazas, amortiguadores y piezas de suspensión por vehículo, número de parte, intercambio o VIN.</p>
+        <a href="https://www.gsplatinamerica.com/find-my-part" target="_blank" rel="noopener">Abrir catálogo</a>
       </article>
     </div>
   </div>
